@@ -8,13 +8,29 @@ This project demonstrates a complete end-to-end workflow: from local development
 
 ---
 
+## 📸 Preview
+
+![alt text](image.png)
+
+---
+
+## 💭 Why I Built This
+
+This project was created as part of my learning journey in backend development.
+I wanted to move beyond local scripts and build a real web application that is accessible online.
+
+Through this project, I learned how to connect everything:
+from backend logic, database handling, user interface, all the way to deployment.
+
+---
+
 ## 🚀 Features
 
-* 🔐 User Authentication (Register & Login)
-* 📋 CRUD Operations (Create, Read, Update, Delete)
-* 👤 User profile data management
-* 🎨 Simple and clean UI
-* ☁️ Deployed to cloud using Render
+* 🔐 User registration & login system
+* 👤 Session-based authentication
+* 📋 Full CRUD functionality (Create, Read, Update, Delete)
+* 🎨 Clean and improved UI layout
+* ☁️ Deployed and accessible online
 
 ---
 
@@ -25,6 +41,15 @@ This project demonstrates a complete end-to-end workflow: from local development
 * **Frontend**: HTML, CSS
 * **Deployment**: Render
 * **Version Control**: GitHub
+
+---
+
+## 🧩 How It Works
+
+* Flask handles routing and backend logic
+* SQLite stores application data
+* HTML templates render the UI
+* Sessions manage authentication state
 
 ---
 
@@ -51,19 +76,25 @@ git clone https://github.com/trishnantidea-sys/flask-crud-app.git
 cd flask-crud-app
 ```
 
+---
+
 ### 2. Create virtual environment
 
 ```bash
 python -m venv venv
-source venv/bin/activate  # Mac/Linux
-venv\Scripts\activate     # Windows
+source venv/bin/activate   # Mac/Linux
+venv\Scripts\activate      # Windows
 ```
+
+---
 
 ### 3. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
+
+---
 
 ### 4. Run application
 
@@ -97,16 +128,16 @@ This project is deployed using Render.
 
 ## 🧠 Lessons Learned
 
-* Understanding full-stack workflow (backend → frontend → deployment)
-* Debugging real-world deployment issues
-* Importance of clean project structure
-* Improving UI for better user experience
+* Building locally is not enough—deployment is crucial
+* Debugging deployment issues is part of real development
+* Small UI improvements significantly improve user experience
+* End-to-end projects provide deeper understanding
 
 ---
 
 ## 📌 Future Improvements
 
-* 🔐 Password hashing & security enhancement
+* 🔐 Add password hashing for better security
 * 🐘 Migrate database to PostgreSQL
 * 🎨 Improve UI with modern framework (Bootstrap / Tailwind)
 * 📊 Add dashboard analytics
@@ -116,5 +147,6 @@ This project is deployed using Render.
 ## 👤 Author
 
 **Dea Trishnanti**
-Data Science
+Data Scienctist
 
+---
