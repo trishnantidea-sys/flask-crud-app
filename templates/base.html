@@ -3,36 +3,102 @@
 <head>
     <title>Aplikasi Gudang D&L</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+        }
+
+        .navbar {
+            background: #1f2937;
+            padding: 15px 30px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: #60a5fa;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+
+        .container {
+            width: 500px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .alert {
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+        }
+
+        .alert-success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .alert-danger {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: gray;
+        }
+    </style>
 </head>
+
 <body>
-    <div class="header">
-        <h1>Gudang D&L</h1>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div><strong>Gudang D&L</strong></div>
+
+    <div>
         {% if session.get('user_id') %}
-            <p>Halo, {{ session.get('full_name') or session.get('username') }} | 
-            <a href="{{ url_for('index') }}">Dashboard</a> | 
-            <a href="{{ url_for('add_package') }}">Tambah Paket</a> | 
-            <a href="{{ url_for('logout') }}">Logout</a></p>
+            Halo, {{ session.get('full_name') or session.get('username') }} |
+            <a href="{{ url_for('index') }}">Dashboard</a>
+            <a href="{{ url_for('add_package') }}">Tambah Paket</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
         {% else %}
-            <a href="{{ url_for('login') }}">Login</a> | 
+            <a href="{{ url_for('login') }}">Login</a>
             <a href="{{ url_for('register') }}">Register</a>
         {% endif %}
     </div>
+</div>
 
-    <div>
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% for category, message in messages %}
-                    <div class="alert alert-{{ category }}">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
+<!-- CONTENT -->
+<div class="container">
 
-        {% block content %}{% endblock %}
-    </div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
 
-    <hr style="margin-top: 50px;">
-    <p style="text-align: center;">Gudang Ekspedisi D&L &copy; 2026</p>
+    {% block content %}{% endblock %}
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+    Gudang Ekspedisi D&L &copy; 2026
+</footer>
+
 </body>
 </html>
