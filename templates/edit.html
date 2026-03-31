@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Edit Data Barang</h2>
+<form action="#" method="post">
+    <p>
+        <label for="item_name">Nama Barang:</label><br>
+        <input type="text" id="item_name" name="item_name" value="Contoh Barang A">
+    </p>
+    <p>
+        <label for="quantity">Kuantitas:</label><br>
+        <input type="number" id="quantity" name="quantity" value="42">
+    </p>
+    <p>
+        <label for="category">Kategori:</label><br>
+        <input type="text" id="category" name="category" value="Elektronik">
+    </p>
+    <button type="submit">Simpan Perubahan</button>
+    <a href="{{ url_for('index') }}">Batal</a>
+</form>
+{% endblock %}

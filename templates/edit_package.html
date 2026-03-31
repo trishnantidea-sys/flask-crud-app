@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Edit Paket ({{ package.resi }})</h2>
+
+<form method="POST">
+    <div>
+        <label>Kategori:</label><br>
+        <select name="category" required>
+            <option value="Alat Olahraga" {% if package.category == 'Alat Olahraga' %}selected{% endif %}>Alat Olahraga</option>
+            <option value="Kebutuhan Rumah Tangga" {% if package.category == 'Kebutuhan Rumah Tangga' %}selected{% endif %}>Kebutuhan Rumah Tangga</option>
+            <option value="ATK (Alat Tulis Kantor)" {% if package.category == 'ATK (Alat Tulis Kantor)' %}selected{% endif %}>ATK (Alat Tulis Kantor)</option>
+            <option value="Dokumen" {% if package.category == 'Dokumen' %}selected{% endif %}>Dokumen</option>
+            <option value="Elektronik" {% if package.category == 'Elektronik' %}selected{% endif %}>Elektronik</option>
+            <option value="Pakaian/Tekstil" {% if package.category == 'Pakaian/Tekstil' %}selected{% endif %}>Pakaian/Tekstil</option>
+            <option value="Sparepart" {% if package.category == 'Sparepart' %}selected{% endif %}>Sparepart</option>
+        </select>
+    </div>
+
+    <div>
+        <label>Nama Pengirim:</label><br>
+        <input type="text" name="sender" value="{{ package.sender }}" required>
+    </div>
+
+    <div>
+        <label>No. HP Pengirim:</label><br>
+        <input type="text" name="sender_phone" value="{{ package.sender_phone }}" required>
+    </div>
+
+    <div>
+        <label>Nama Penerima:</label><br>
+        <input type="text" name="receiver" value="{{ package.receiver }}" required>
+    </div>
+
+    <div>
+        <label>No. HP Penerima:</label><br>
+        <input type="text" name="receiver_phone" value="{{ package.receiver_phone }}" required>
+    </div>
+
+    <div>
+        <label>Alamat Tujuan:</label><br>
+        <textarea name="destination_address" rows="3" required>{{ package.destination_address }}</textarea>
+    </div>
+
+    <div>
+        <label>Berat (kg):</label><br>
+        <input type="number" step="0.1" name="weight" value="{{ package.weight }}" required>
+    </div>
+
+    <div>
+        <label>Tanggal Pengiriman:</label><br>
+        <input type="text" name="shipping_date" value="{{ package.shipping_date }}" required>
+    </div>
+
+    <div>
+        <label>Jenis Pengiriman:</label><br>
+        <select name="shipping_type" required>
+            <option value="D&L Reguler" {% if package.shipping_type == 'D&L Reguler' %}selected{% endif %}>D&L Reguler</option>
+            <option value="D&L Eco (Ekonomis)" {% if package.shipping_type == 'D&L Eco (Ekonomis)' %}selected{% endif %}>D&L Eco (Ekonomis)</option>
+            <option value="D&L Super (Kilat)" {% if package.shipping_type == 'D&L Super (Kilat)' %}selected{% endif %}>D&L Super (Kilat)</option>
+            <option value="D&L Cargo" {% if package.shipping_type == 'D&L Cargo' %}selected{% endif %}>D&L Cargo</option>
+        </select>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <button type="submit">Update Paket</button>
+        <a href="{{ url_for('index') }}">Batal</a>
+    </div>
+</form>
+{% endblock %}

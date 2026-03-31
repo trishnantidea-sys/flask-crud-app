@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aplikasi Gudang D&L</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="header">
+        <h1>Gudang D&L</h1>
+        {% if session.get('user_id') %}
+            <p>Halo, {{ session.get('full_name') or session.get('username') }} | 
+            <a href="{{ url_for('index') }}">Dashboard</a> | 
+            <a href="{{ url_for('add_package') }}">Tambah Paket</a> | 
+            <a href="{{ url_for('logout') }}">Logout</a></p>
+        {% else %}
+            <a href="{{ url_for('login') }}">Login</a> | 
+            <a href="{{ url_for('register') }}">Register</a>
+        {% endif %}
+    </div>
+
+    <div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </div>
+
+    <hr style="margin-top: 50px;">
+    <p style="text-align: center;">Gudang Ekspedisi D&L &copy; 2026</p>
+</body>
+</html>

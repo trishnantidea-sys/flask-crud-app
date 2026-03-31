@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Daftar Paket Ekspedisi</h2>
+<p><a href="{{ url_for('add_package') }}">[+] Tambah Paket Baru</a></p>
+
+<table>
+    <thead>
+        <tr>
+            <th>No Resi</th>
+            <th>Pengirim</th>
+            <th>Penerima</th>
+            <th>Kategori</th>
+            <th>Jenis</th>
+            <th>Tarif</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for package in packages %}
+        <tr>
+            <td>{{ package.resi }}</td>
+            <td>{{ package.sender }}</td>
+            <td>{{ package.receiver }}</td>
+            <td>{{ package.category }}</td>
+            <td>{{ package.shipping_type }}</td>
+            <td>Rp {{ "{:,.0f}".format(package.fare) }}</td>
+            <td>
+                <a href="{{ url_for('edit_package', resi=package.resi) }}">Edit</a> | 
+                <form action="{{ url_for('delete_package', resi=package.resi) }}" method="POST" style="display: inline;">
+                    <button type="submit" onclick="return confirm('Hapus data ini?')">Hapus</button>
+                </form>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="7">Belum ada data paket.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
