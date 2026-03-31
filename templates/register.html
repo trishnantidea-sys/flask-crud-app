@@ -1,53 +1,76 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div style="max-width: 420px; margin: 0 auto; padding: 25px; border: 1px solid #ddd; border-radius: 8px; background: white;">
 
-<h2>Register Account</h2>
-<p style="color: gray; font-size: 14px;">
-    Create your account to manage warehouse data
-</p>
+    <h3 style="margin-bottom: 10px;">Register Account</h3>
+    <p style="color: gray; font-size: 14px; margin-bottom: 20px;">
+        Create your account
+    </p>
 
-<form method="POST">
+    <form method="POST">
 
-    <label>Username</label>
-    <input type="text" name="username" placeholder="Enter username" required>
+        <div>
+            <label>Username</label><br>
+            <input type="text" name="username" required>
+        </div>
 
-    <label>Password</label>
-    <input type="password" name="password" placeholder="Enter password" required>
+        <div>
+            <label>Password</label><br>
+            <input type="password" name="password" required>
+        </div>
 
-    <hr style="margin: 20px 0;">
+        <hr style="margin: 15px 0;">
 
-    <label>Full Name</label>
-    <input type="text" name="full_name" placeholder="Enter full name" required>
+        <div>
+            <label>Full Name</label><br>
+            <input type="text" name="full_name" required>
+        </div>
 
-    <label>Email Address</label>
-    <input type="email" name="email" placeholder="Enter email" required>
+        <div>
+            <label>Email Address</label><br>
+            <input type="email" name="email" required>
+        </div>
 
-    <label>Gender</label>
-    <select name="gender">
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-    </select>
+        <div>
+            <label>Gender</label><br>
+            <select name="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
 
-    <label>Age</label>
-    <input type="number" name="age" placeholder="Enter age">
+        <div>
+            <label>Age</label><br>
+            <input type="number" name="age">
+        </div>
 
-    <label>Occupation</label>
-    <input type="text" name="occupation" placeholder="Enter occupation">
+        <div>
+            <label>Occupation</label><br>
+            <input type="text" name="occupation">
+        </div>
 
-    <label>City</label>
-    <input type="text" name="city" placeholder="Enter city">
+        <div>
+            <label>City</label><br>
+            <input type="text" name="city">
+        </div>
 
-    <label>Phone</label>
-    <input type="text" name="phone" placeholder="Enter phone number">
+        <div>
+            <label>Phone</label><br>
+            <input type="text" name="phone">
+        </div>
 
-    <button type="submit">Create Account</button>
+        <div style="margin-top: 20px;">
+            <button type="submit" style="width:100%; padding:10px; background:#2563eb; color:white; border:none; border-radius:6px;">
+                Daftar Akun
+            </button>
+        </div>
 
-</form>
+    </form>
 
-<p style="text-align:center; margin-top:15px;">
-    Already have an account? 
-    <a href="{{ url_for('login') }}">Login</a>
-</p>
+    <p style="margin-top:15px; text-align:center;">
+        Sudah punya akun? <a href="{{ url_for('login') }}">Log in</a>
+    </p>
 
+</div>
 {% endblock %}
