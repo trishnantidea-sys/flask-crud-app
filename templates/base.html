@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Aplikasi Gudang D&L</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Gudang D&L</title>
 
     <style>
         body {
@@ -11,8 +10,9 @@
             margin: 0;
         }
 
+        /* NAVBAR */
         .navbar {
-            background: #1f2937;
+            background: linear-gradient(90deg, #1f2937, #111827);
             padding: 15px 30px;
             color: white;
             display: flex;
@@ -26,29 +26,55 @@
             margin-left: 15px;
         }
 
+        /* 🔥 CONTAINER FIX */
         .container {
-            width: 500px;
+            width: 90%;
+            max-width: 1000px; /* penting */
             margin: 40px auto;
             background: white;
             padding: 30px;
-            border-radius: 10px;
+            border-radius: 12px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        .alert {
-            padding: 10px;
-            margin-bottom: 15px;
+        /* TABLE */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #1f2937;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        tr:nth-child(even) {
+            background: #f9fafb;
+        }
+
+        tr:hover {
+            background: #e0f2fe;
+        }
+
+        /* BUTTON */
+        .btn-danger {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 6px 10px;
             border-radius: 6px;
+            cursor: pointer;
         }
 
-        .alert-success {
-            background: #d1fae5;
-            color: #065f46;
-        }
-
-        .alert-danger {
-            background: #fee2e2;
-            color: #991b1b;
+        .btn-danger:hover {
+            background: #dc2626;
         }
 
         footer {
@@ -61,7 +87,6 @@
 
 <body>
 
-<!-- NAVBAR -->
 <div class="navbar">
     <div><strong>Gudang D&L</strong></div>
 
@@ -78,26 +103,12 @@
     </div>
 </div>
 
-<!-- CONTENT -->
 <div class="container">
-
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            {% for category, message in messages %}
-                <div class="alert alert-{{ category }}">
-                    {{ message }}
-                </div>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
-
     {% block content %}{% endblock %}
-
 </div>
 
-<!-- FOOTER -->
 <footer>
-    Gudang Ekspedisi D&L &copy; 2026
+    Gudang Ekspedisi D&L © 2026
 </footer>
 
 </body>
