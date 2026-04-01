@@ -147,6 +147,6 @@ This project is deployed using Render.
 ## 👤 Author
 
 **Dea Trishnanti**
-Data Scienctist
+Data Enthusiast
 
 ---
